@@ -1,16 +1,18 @@
 {
   "name": "triemoize",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Efficient and reliable memoization using WeakMaps and tries",
   "main": "./dist/index.js",
   "module": "./es6/index.js",
   "typings": "./typings/index.d.ts",
   "scripts": {
+    "commit": "git-cz",
     "clean": "rimraf typings dist es6",
     "build": "npm run clean && tsc && webpack",
     "lint": "tslint ./src/**/*.*",
     "test": "jest",
-    "prepush": "npm run lint && npm t"
+    "prepush": "npm run lint && npm t",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "dist",
@@ -35,11 +37,14 @@
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "commitizen": "^2.9.6",
     "compression-webpack-plugin": "^1.0.0",
+    "cz-conventional-changelog": "^2.0.0",
     "husky": "^0.14.3",
     "imports-loader": "^0.7.1",
     "jest": "^20.0.4",
     "rimraf": "^2.6.1",
+    "semantic-release": "^6.3.6",
     "ts-jest": "^20.0.7",
     "ts-loader": "^2.3.0",
     "tslint": "^5.0.0",
@@ -56,5 +61,10 @@
       "ts",
       "js"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
