@@ -1,0 +1,60 @@
+{
+  "name": "triemoize",
+  "version": "1.0.0",
+  "description": "Efficient and reliable memoization using WeakMaps and tries",
+  "main": "./dist/index.js",
+  "module": "./es6/index.js",
+  "typings": "./typings/index.d.ts",
+  "scripts": {
+    "clean": "rimraf typings dist es6",
+    "build": "npm run clean && tsc && webpack",
+    "lint": "tslint ./src/**/*.*",
+    "test": "jest",
+    "prepush": "npm run lint && npm t"
+  },
+  "files": [
+    "dist",
+    "es6",
+    "src",
+    "typings"
+  ],
+  "author": {
+    "name": "Erik Cupal",
+    "email": "erik@cup.al"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ErikCupal/triemoize"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^20.0.4",
+    "babel-core": "^6.25.0",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.0",
+    "husky": "^0.14.3",
+    "imports-loader": "^0.7.1",
+    "jest": "^20.0.4",
+    "rimraf": "^2.6.1",
+    "ts-jest": "^20.0.7",
+    "ts-loader": "^2.3.0",
+    "tslint": "^5.0.0",
+    "typescript": "^2.5.0-dev.20170712",
+    "webpack": "^3.3.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "jest": {
+    "transform": {
+      ".ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  }
+}

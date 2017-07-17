@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src/",
+    "outDir": "./es6/",
+    "target": "es2015",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "pretty": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "./typings/"
+  },
+  "exclude": [
+    "**/*.test.ts",
+    "node_modules"
+  ]
+}

@@ -1,0 +1,7 @@
+export const cache = Symbol()
+export const hasResult = Symbol()
+export const result = Symbol()
+export const objectsCache = Symbol()
+export const limitedObject = Symbol()
+export const primitivesKeysQueue = Symbol()
+export const limit = Symbol()
