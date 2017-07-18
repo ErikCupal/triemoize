@@ -54,8 +54,8 @@ const food = [
   'butter', 'eggs', 'sausages', 'pork', 'yoghurt', 'apple'
 ]
 
-getStringsLessThan(food) // The function was called
-getStringsLessThan(food) // The result was taken from cache
+getStringsLessThan(food, 6) // The function was called
+getStringsLessThan(food, 6) // The result was taken from cache
 ```
 
 ### Named arguments
