@@ -1,32 +1,7 @@
 import { CombinedMap, createCombinedMap, mapGet, mapHas, mapSet } from './combinedMap'
-import { hasResult, cache, result } from './symbols'
+import { hasResult, cache, result, noResult } from './symbols'
 
 const isCache = <T>(value: T) => typeof value === 'object' && value[cache]
-
-const has = (cache: CombinedMap, params: any[], remainingParamsLength: number): boolean => {
-  if (remainingParamsLength === 0) {
-    return !!cache[hasResult]
-  }
-
-  const currentParamsKey = params[params.length - remainingParamsLength]
-  const hasKey = mapHas(cache, currentParamsKey)
-
-  if (hasKey) {
-    const keyValue = mapGet(cache, currentParamsKey)
-
-    if (remainingParamsLength === 1) {
-      if (isCache(keyValue)) {
-        return !!keyValue[result]
-      } else {
-        return !!keyValue
-      }
-    }
-
-    return has(keyValue, params, remainingParamsLength - 1)
-  }
-
-  return false
-}
 
 const get = (cache: CombinedMap, params: any[], remainingParamsLength: number): any => {
   if (remainingParamsLength === 0) {
@@ -50,7 +25,7 @@ const get = (cache: CombinedMap, params: any[], remainingParamsLength: number): 
     return get(keyValue, params, remainingParamsLength - 1)
   }
 
-  return undefined
+  return noResult
 }
 
 const set = (
@@ -112,12 +87,14 @@ export const memoize = <F extends Function>(fn: F, options?: Options): F => {
   const cache = createCombinedMap(primitivesCacheLimit)
 
   const memoizedFn: any = (...args: any[]) => {
-    if (has(cache, args, args.length)) {
-      return get(cache, args, args.length)
-    } else {
+    const possibleResult = get(cache, args, args.length)
+
+    if (possibleResult === noResult) {
       const result = fn(...args)
       set(result, cache, primitivesCacheLimit, args, args.length)
       return result
+    } else {
+      return possibleResult
     }
   }
 
