@@ -9,7 +9,8 @@
     "test": "jest",
     "prepush": "npm t",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "benchmark": "node ./benchmark/index.js"
+    "benchmark": "node ./benchmark",
+    "benchmark:turbofan": "node --harmony ./benchmark"
   },
   "files": [
     "index.js",
