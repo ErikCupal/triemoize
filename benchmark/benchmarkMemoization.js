@@ -31,13 +31,8 @@ const renderResults = ({
   console.log(table.toString())
 }
 
-const defaultMemoizers = {
-  'fast-memoize': fastMemoize,
-  'triemoize': triemoize,
-}
-
-const benchmarkMemoization = (functionToMemoize, passedArguments, memoizers = defaultMemoizers) => {
-  if (functionToMemoize && passedArguments) {
+const benchmarkMemoization = (memoizers = {}) => (functionToMemoize, callFunctionWithArgs) => {
+  if (functionToMemoize && callFunctionWithArgs) {
     let results = []
 
     const sortResults = sort((a, b) => a.target.hz < b.target.hz ? 1 : -1)
@@ -46,7 +41,7 @@ const benchmarkMemoization = (functionToMemoize, passedArguments, memoizers = de
 
     const onComplete = () => renderResults({
       functionName: functionToMemoize.name,
-      functionArguments: passedArguments,
+      functionArguments: callFunctionWithArgs.toString(),
       results: sortResults(results),
     })
 
@@ -59,7 +54,7 @@ const benchmarkMemoization = (functionToMemoize, passedArguments, memoizers = de
     pipe(
       toPairs,
       forEach(([memoizerName, memoizedFunction]) => {
-        benchmark.add(memoizerName, () => memoizedFunction(...passedArguments))
+        benchmark.add(memoizerName, () => callFunctionWithArgs(memoizedFunction))
       })
     )(functionsToBenchmark)
 
