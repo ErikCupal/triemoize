@@ -106,6 +106,20 @@ TODO
 
 I created a set of benchmarks that tests the performance of trimemoize on four different functions. For comparision I have tested the performance of fast-memoize as well.
 
+You can try the benchmarks yourself
+    
+clone the repo
+
+    git clone https://github.com/ErikCupal/triemoize.git
+    
+install dependencies
+
+    npm install
+    
+run benchmarks
+
+    npm run benchmark
+
 **Tested enviroment**: Node v8.2.1, Windows 64bit, Intel Core i7-6820HQ 2.70 GHz, 16 GB RAM
 
 ### Fibonacci
