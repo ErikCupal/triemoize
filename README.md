@@ -104,7 +104,7 @@ TODO
 
 ## Benchmarks
 
-I created a set of benchmarks that tests the performance of trimemoize on four different functions. For comparision I have tested the performance of fast-memoize as well.
+I created a set of benchmarks that tests the performance of triemoize on four different functions. For comparision I have tested the performance of fast-memoize as well.
 
 You can try the benchmarks yourself
     
