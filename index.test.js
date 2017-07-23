@@ -1,14 +1,14 @@
-import { memoize } from '.'
+const memoize = require('.')
 
 test('memoize', () => {
   let sumCalledCount = 0
   let getStringsShorterThanCalledCount = 0
 
-  const sum = (...args: number[]): number => {
+  const sum = (...args) => {
     sumCalledCount++
     return args.reduce((acc, n) => acc + n, 0)
   }
-  const getStringsShorterThan = (array: string[], n: number): string[] => {
+  const getStringsShorterThan = (array, n) => {
     getStringsShorterThanCalledCount++
     return array.filter(item => item.length <= n)
   }
@@ -52,7 +52,7 @@ test('memoize', () => {
 test('memoize limited', () => {
   let sumCalledCount = 0
 
-  const sum = (...args: number[]): number => {
+  const sum = (...args) => {
     sumCalledCount++
     return args.reduce((acc, n) => acc + n, 0)
   }
@@ -89,7 +89,7 @@ test('memoize limited', () => {
 // test('memoize no arg function', () => {
 //   let fnCalledCount = 0
 
-//   const fn = (): number => {
+//   const fn = () => {
 //     fnCalledCount++
 //     return 1
 //   }
