@@ -175,7 +175,7 @@ run benchmarks
 
 **Preparation code:** ```const food = ['milk', 'bread', 'wine', 'chocolate']```
 
-**Arguments:** `food`
+**Arguments:** `food, 5`
 
 **Results:**
 

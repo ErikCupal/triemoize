@@ -24,7 +24,7 @@ const runBenchmarks = () => {
   benchmarkFunction(fibonacci, f => f(15))
   benchmarkFunction(add, f => f(1, 2))
   benchmarkFunction(identity, f => f(obj))
-  benchmarkFunction(getStringsShorterThan, f => f(food))
+  benchmarkFunction(getStringsShorterThan, f => f(food, 5))
 }
 
 runBenchmarks()
