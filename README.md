@@ -107,15 +107,15 @@ TODO
 I created a set of benchmarks that tests the performance of triemoize on four different functions. For comparision I have tested the performance of fast-memoize as well.
 
 You can try the benchmarks yourself
-    
+
 clone the repo
 
     git clone https://github.com/ErikCupal/triemoize.git
-    
+
 install dependencies
 
-    npm install
-    
+    yarn install
+
 run benchmarks
 
     npm run benchmark
